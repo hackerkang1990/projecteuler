@@ -1,5 +1,11 @@
 package com.hackerkang1990.projecteuler;
 
+/*
+ * Solve problem 24: Lexicographic permutations
+ * Problem site: projecteuler.net
+ *
+ */
+
 import java.io.*;
 import java.util.*;
 
@@ -19,17 +25,18 @@ class Solution{
 			f[i] = f[i-1] * i;
 		}
 
-
-		calculate(list, f, count - 1, 0);
+		Solution solution = new Solution();
+		solution.calculate(list, f, count - 1, 0);
 
 		System.out.println();
 	}
 
-	private static void calculate(List<Integer> list, int[] f, int c, int start){
+	private void calculate(List<Integer> list, final int[] f, int c, int start){
 		if(start == len)
 			return;
 		int pos = c / f[len - start - 1];
 		c = c % f[len - start - 1];
+
 		//get number
 		System.out.print(list.get(pos));
 		//construct new list
