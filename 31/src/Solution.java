@@ -17,9 +17,9 @@ class Solution{
 		Arrays.fill(f, 0);
 		f[0] = 1;
 		for(int coin : coins){
-			for(int i = n; i > 0; i--){
-				for(int j = i - coin; j >= 0; j -= coin)
-					f[i] += f[j];
+			for(int i = 0; i < n; i++){
+				if(i + coin <= n)
+					f[i+coin] += f[i];
 			}
 		}
 
